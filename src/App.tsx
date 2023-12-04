@@ -3,7 +3,7 @@ import { Button } from "./lib";
 function App() {
   return (
     <div className="p-12">
-      <Button>click me</Button>
+      <Button className="bg-primary">click me</Button>
     </div>
   );
 }

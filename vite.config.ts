@@ -7,10 +7,17 @@ import dts from "vite-plugin-dts";
 export default defineConfig({
   plugins: [react(), dts({ entryRoot: resolve(__dirname, "src/lib") })],
   build: {
+    copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "src/lib/index.ts"),
-      name: "ExampleUi",
-      fileName: "index",
+      entry: [
+        resolve(__dirname, "src/lib/index.ts"),
+        resolve(__dirname, "src/lib/preset.js"),
+      ],
+      name: "example-ui",
+      fileName: (format, fileName) => {
+        const fmt = format === "es" ? "js" : "umd.cjs";
+        return `${fileName}.${fmt}`;
+      },
     },
   },
 });

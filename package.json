@@ -3,8 +3,18 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "./dist/example-ui.umd.cjs",
-  "module": "./dist/example-ui.js",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    },
+    "./preset": {
+      "import": "./dist/preset.js",
+      "require": "./dist/preset.umd.cjs"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
