@@ -19,5 +19,13 @@ export default defineConfig({
         return `${fileName}.${fmt}`;
       },
     },
+    rollupOptions: {
+      external: ["react"],
+      output: {
+        globals: {
+          react: "React",
+        },
+      },
+    },
   },
 });
